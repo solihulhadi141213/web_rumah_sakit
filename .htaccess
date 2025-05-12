@@ -1,0 +1,31 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /web_rumah_sakit/
+    
+    # 1. Izinkan akses langsung ke semua file assets (css, js, images, fonts)
+    RewriteCond %{REQUEST_URI} \.(css|js|jpg|jpeg|png|gif|webp|ico|svg|woff|woff2|ttf|eot)$ [NC]
+    RewriteRule ^ - [L]
+    
+    # 2. Izinkan akses ke file PHP spesifik
+    RewriteRule ^(index\.php|image_proxy\.php)$ - [L,NC]
+    
+    # 3. Blokir akses langsung ke folder tertentu
+    RewriteRule ^assets/(_Direktur|_Error)/ - [F,NC,L]
+    
+    # 4. Blokir akses ke file PHP lainnya
+    RewriteCond %{REQUEST_URI} \.php$ [NC]
+    RewriteRule ^ - [F,L]
+    
+    # 5. Front controller untuk routing
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ index.php [L]
+</IfModule>
+
+# Blokir akses ke file sensitif
+<FilesMatch "\.(htaccess|env|log|sql|ini)$">
+    Require all denied
+</FilesMatch>
+
+# Nonaktifkan directory listing
+Options -Indexes
