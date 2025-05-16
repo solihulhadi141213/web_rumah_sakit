@@ -12,7 +12,11 @@ if (!empty($_GET['segment']) && !empty($_GET['image_name'])) {
         if($segment == "Dokter"){
             $folder="_Dokter";
         }else{
+            if($segment == "Artikel"){
+            $folder="_Artikel";
+        }else{
             $folder="_Error";
+        }
         }
     }
     $image_name = ($folder == "_Error") ? "no_image.png" : $image_name;

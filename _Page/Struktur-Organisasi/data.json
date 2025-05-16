@@ -1,0 +1,9 @@
+[
+  { "key": 1, "parent": 0, "nama": "Dewi Widiastuti", "jabatan": "Direktur Utama", "foto": "assets/img/_Struktur_Organisasi/Struktur_Organisasi_1.jpg" },
+  { "key": 2, "parent": 1, "nama": "Uneng Unengsih", "jabatan": "Wakil Direktur", "foto": "assets/img/_Struktur_Organisasi/Struktur_Organisasi_2.jpg" },
+  { "key": 3, "parent": 1, "nama": "Wakil Direktur Medis", "jabatan": "Manajemen", "foto": "assets/img/_Struktur_Organisasi/Struktur_Organisasi_3.jpg" },
+  { "key": 4, "parent": 2, "nama": "Kepala Bagian Keuangan", "jabatan": "Keuangan", "foto": "assets/img/_Struktur_Organisasi/Struktur_Organisasi_4.jpg" },
+  { "key": 5, "parent": 2, "nama": "Kepala Bagian SDM", "jabatan": "Sumber Daya Manusia", "foto": "assets/img/_Struktur_Organisasi/Struktur_Organisasi_5.jpg" },
+  { "key": 6, "parent": 3, "nama": "Kepala Bidang Pelayanan Medis", "jabatan": "Pelayanan Medis", "foto": "assets/img/_Struktur_Organisasi/Struktur_Organisasi_6.jpg" },
+  { "key": 7, "parent": 3, "nama": "Solihul Hadi", "jabatan": "Keperawatan", "foto": "" }
+]

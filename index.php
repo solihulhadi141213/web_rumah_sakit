@@ -33,7 +33,7 @@
     
     // Ambil segment pertama sebagai halaman
     $segments = explode('/', $relative_uri);
-    $Page = !empty($segments[0]) ? $segments[0] : 'home';
+    $Page = !empty($segments[0]) ? $segments[0] : 'Home';
     
     // Contoh penggunaan:
     // - URL: example.com/index.php/contact → $Page = 'contact'
@@ -97,6 +97,8 @@
         <link rel="stylesheet" href="<?php echo $base_url; ?>/node_modules/swiper/swiper-bundle.min.css"/>
         <script src="<?php echo $base_url; ?>/node_modules/swiper/swiper-bundle.min.js"></script>
 
+        <!-- Go JS -->
+        <script src="<?php echo $base_url; ?>/assets/GoJs/release/go.js"></script>
 
         <!-- Custome CSS -->
         <link rel="stylesheet" href="<?php echo $base_url; ?>/assets/css/custome.css?v=<?php echo date('YmdHis'); ?>">
@@ -118,7 +120,7 @@
                 <div class="d-flex align-items-center gap-2">
                     <img src="<?php echo $base_url; ?>/assets/img/67718ce144463.png" alt="Logo RSU El-Syifa" style="height: 40px;">
                     <h4 class="mb-0">
-                        <a href="" class="web-name text-decoration-none">RSU El-Syifa</a>
+                        <a href="" class="web-name text-decoration-none">RSU El-Syifa Kuningan</a>
                     </h4>
                 </div>
 
@@ -173,7 +175,7 @@
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Tentang Kami</a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="#">Sejarah</a></li>
-                                <li><a class="dropdown-item" href="#">Struktur Organisasi</a></li>
+                                <li><a class="dropdown-item" href="<?php echo $base_url; ?>Struktur-Organisasi">Struktur Organisasi</a></li>
                                 <li><a class="dropdown-item" href="#">Sarana Prasarana</a></li>
                                 <li><a class="dropdown-item" href="#">Sumber Daya Manusia</a></li>
                                 <li><a class="dropdown-item" href="#">Kontak Dan Lokasi</a></li>
@@ -188,20 +190,23 @@
                             </ul>
                         </li>
                         <li class="nav-item"><a class="nav-link" href="<?php echo $base_url; ?>Dokter">Dokter</a></li>
-                        <li class="nav-item"><a class="nav-link" href="<?php echo $base_url; ?>Contact">Kontak</a></li>
-                        <li class="nav-item"><a class="nav-link" href="<?php echo $base_url; ?>Contact">Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="<?php echo $base_url; ?>Kontak">Kontak</a></li>
+                        <li class="nav-item"><a class="nav-link" href="<?php echo $base_url; ?>Login">Login</a></li>
                     </ul>
                 </nav>
             </div>
         </header>
         <?php
             // Routing manual
-            if($Page=="Home"){
+            // echo '<h1>'.$Page.'</h1>';
+            if($Page=="Home"||$Page==""){
                 include "_Page/Home/Home.php";
             }elseif($Page=="Contact"){
                 include "_Page/Contact/Contact.php";
+            }elseif($Page=="Struktur-Organisasi"){
+                include "_Page/Struktur-Organisasi/Struktur-Organisasi.php";
             }else{
-                include "_Page/Home/Home.php";
+                include "_Page/Error/page-not-found.php";
             }
         ?>
         
@@ -298,6 +303,7 @@
             // Fallback jika event load tidak terpicu
             setTimeout(hidePreloader, minimumDisplayTime + 1000);
         });
+
         $(document).ready(function(){
             // Fungsi untuk mengecek ketika elemen muncul di viewport
             function tampilkanDenganTransisi() {
@@ -326,7 +332,14 @@
                         $(this).addClass('show');
                     }
                 });
+                $('.title_segment_dark').each(function () {
+                    var top_of_element = $(this).offset().top;
+                    var bottom_of_screen = $(window).scrollTop() + $(window).height();
 
+                    if (bottom_of_screen > top_of_element + 30) {
+                        $(this).addClass('show');
+                    }
+                });
                  $('.service_segment').each(function () {
                     var top_of_element = $(this).offset().top;
                     var bottom_of_screen = $(window).scrollTop() + $(window).height();
@@ -469,6 +482,35 @@
                     dynamicBullets: true
                 },
             });
+
+            //ROOM SWIPER
+            new Swiper(".room_swiper", {
+                slidesPerView: 1.2,
+                spaceBetween: 2, // atau kurangi jadi 8 jika terlalu renggang
+                breakpoints: {
+                    576: {
+                        slidesPerView: 1,
+                        spaceBetween: 16
+                    },
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 20
+                    },
+                    992: {
+                        slidesPerView: 4,
+                        spaceBetween: 24
+                    }
+                },
+                pagination: {
+                    el: ".room-pagination",
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+            });
+
         });
     </script>
 </html>
