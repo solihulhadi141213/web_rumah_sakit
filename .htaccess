@@ -8,12 +8,16 @@
     
     # 2. Izinkan akses ke file PHP spesifik
     RewriteRule ^(index\.php|image_proxy\.php)$ - [L,NC]
+
+    # 2a. Izinkan akses ke semua file di dalam folder _Api
+    RewriteRule ^_Api/.*\.php$ - [L,NC]
     
     # 3. Blokir akses langsung ke folder tertentu
     RewriteRule ^assets/(_Direktur|_Error)/ - [F,NC,L]
     
-    # 4. Blokir akses ke file PHP lainnya
+    # 4. Blokir akses ke file PHP lainnya, KECUALI dari _Api
     RewriteCond %{REQUEST_URI} \.php$ [NC]
+    RewriteCond %{REQUEST_URI} !^/_Api/ [NC]
     RewriteRule ^ - [F,L]
     
     # 5. Front controller untuk routing

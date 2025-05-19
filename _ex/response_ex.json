@@ -1,0 +1,21 @@
+{
+    "status":"success",
+    "message": "Galeri berhasil ditampilkan.",
+    "page": 1,
+    "limit": 10,
+    "data":
+    [
+        {
+            "id_galeri":"",
+            "title":"",
+            "cover":"",
+            "item":0
+        },
+            {
+            "id_galeri":"",
+            "title":"",
+            "cover":"",
+            "item":0
+        }
+    ]
+}
