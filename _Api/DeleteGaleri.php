@@ -14,7 +14,14 @@
         echo json_encode($data);
         exit;
     }
-
+    
+    // Validate HTTP Method
+    if ($_SERVER['REQUEST_METHOD'] !== 'DELETE') {
+        sendResponse([
+            'status' => 'error',
+            'message' => 'Method not allowed. Only DELETE requests are accepted'
+        ], 405);
+    }
     try {
         // Koneksi Database
         require_once '../_Config/Connection.php';

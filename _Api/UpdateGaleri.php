@@ -7,7 +7,15 @@
         echo json_encode($data);
         exit;
     }
-
+    
+    // Validasi HTTP Method
+    if ($_SERVER['REQUEST_METHOD'] !== 'PUT') {
+        sendResponse([
+            'status' => 'error',
+            'message' => 'Method not allowed. Only PUT requests are accepted'
+        ], 405); // 405 Method Not Allowed
+    }
+    
     // Koneksi Database
     require_once '../_Config/Connection.php';
     require_once '../_Config/Function.php';

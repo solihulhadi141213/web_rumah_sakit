@@ -20,6 +20,58 @@
     "navbar":{
         "logo-image": "67718ce144463.png",
         "title": "RSU El-Syifa Kuningan"
-    }
+    },
+    "hero":{
+        "hero_1":{
+            "title":"Selamat Datang",
+            "sub_title":"Di Website RSU El-Syifa Kuningan",
+            "image":"hero_1.jpg"
+        },
+        "hero_2":{
+            "title":"IGD 24 JAM",
+            "sub_title":"Hubungi : (0232) 876240 / +6289601154726",
+            "image":"hero_2.jpg"
+        },
+        "hero_3":{
+            "title":"Media Sosial Kami",
+            "media_sosial":{
+                "facebook":"https://facebook.com",
+                "instagram":"https://instagram.com",
+                "x":"https://x.com",
+                "youtube":"https://youtube.com"
+            },
+            "image":"hero_3.jpg"
+        }
+    },
+    "sambutan_direktur":{
+        "title":"Sambutan Direktur RSU El-Syifa Kuningan",
+        "sub_title":"Direktur RSU El-Syifa Kuningan",
+        "name":"Dr. H. Muhammad Ridwan, Sp.OG(K)",
+        "opening":"<p><b>Assalamu'alaikum Warahmatullahi Wabarakatuh</b></p><p>Merupakan suatu kehormatan dan kebahagiaan bagi kami, segenap keluarga besar Rumah Sakit Umum El-Syifa Kuningan, untuk menyambut Anda di platform daring resmi kami. Kehadiran website ini adalah wujud komitmen kami untuk semakin mendekatkan diri dengan masyarakat Kuningan dan sekitarnya, serta memberikan akses informasi yang mudah dan transparan mengenai layanan kesehatan yang kami sediakan. </p>",
+        "foto": "picture.jpg"
+    },
+    "info_grafis":{
+        "title":"Info Grafis",
+        "bg_image":"info_grafis.jpg",
+        "list_content":[
+            {
+                "name":"Pasien",
+                "count":1000,
+                "icon": "<i class=\"bi bi-person-lines-fill\"></i>"
+            },
+            {
+                "name":"Kunjungan",
+                "count":1500,
+                "icon": "<i class=\"bi bi-personill\"></i>"
+            }
+        ]
+    },
+    "content_blog":[
+        {
+            "order":1,
+            "type":"text",
+            "content":"Assalamualaikum"
+        }
+    ]
     
 }
