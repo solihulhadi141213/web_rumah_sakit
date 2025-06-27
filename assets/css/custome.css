@@ -518,6 +518,7 @@ main {
 
 /* SWIPER */
 .mySwiper {
+position: relative;
   padding-bottom: 40px; /* beri ruang untuk pagination agar tidak menimpa konten */
   cursor: grab;
 }
@@ -543,6 +544,7 @@ main {
   height: 200px;
   object-fit: cover;
 }
+
 /* SWIPER PAGINATION */
 .swiper-pagination {
     position: relative;
@@ -559,6 +561,38 @@ main {
 
 .swiper-pagination-bullet-active {
     background: #3de765; /* Warna hijau sesuai tema */
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    color: #000; /* Warna panah */
+    background-color: rgba(255, 255, 255, 0.7); /* Latar belakang */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    top: 30%; /* Posisikan di 50% dari tinggi parent */
+    transform: translateY(-50%); /* Geser ke atas sebanyak 50% tinggi sendiri */
+    margin-top: 0; /* Hapus margin default */
+}
+/* Opsional: Adjust jarak dari tepi */
+.swiper-button-prev {
+    left: 10px; /* Jarak dari kiri */
+}
+.swiper-button-next {
+    right: 10px; /* Jarak dari kanan */
+}
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+    background-color: rgba(9, 255, 0, 0.8);
+    color: #fff;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    font-size: 20px; /* Ukuran ikon panah */
+    font-weight: bold;
 }
 
 /* Zoom efek ketika hover pada card dokter */
@@ -981,7 +1015,22 @@ iframe {
   background-color: #000; /* Hitam saat hover */
   color: #fff; /* Tulisan jadi putih saat hover */
 }
+.baca_selengkapnya_green {
+  color: #ffffff; /* Tulisan hitam */
+  background-color: #01b637; /* Background transparan */
+  border: 2px solid #01b637; /* Garis pinggir hitam */
+  padding: 8px 20px;
+  border-radius: 60px; /* Biar agak membulat */
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
 
+/* Efek saat hover */
+.baca_selengkapnya_green:hover {
+  background-color: #0aff54; /* Hitam saat hover */
+  color: #fff; /* Tulisan jadi putih saat hover */
+}
 /* PENDAFTARAN ANTRIAN */
 /* Gradient background section */
 .pendaftaran_antrian {

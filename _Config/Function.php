@@ -100,6 +100,7 @@
             return $Data[$Colom];
         }
     }
+    
     function IjinAksesSaya($Conn,$SessionIdAkses,$KodeFitur){
         $QryParam = mysqli_query($Conn,"SELECT * FROM akses_ijin WHERE id_akses='$SessionIdAkses' AND kode='$KodeFitur'")or die(mysqli_error($Conn));
         $DataParam = mysqli_fetch_array($QryParam);
@@ -531,5 +532,45 @@
         } else {
             return $_SERVER['REMOTE_ADDR']; // IP langsung
         }
+    }
+
+    //Format Nilai 1K, 1 M dst
+    function formatShortNumber($number) {
+        if ($number >= 1000000) {
+            // Format untuk jutaan (1M, 1,5M, dst)
+            $formatted = number_format($number / 1000000, 1, ',', '') . 'M';
+        } elseif ($number >= 1000) {
+            // Format untuk ribuan (1K, 1,5K, dst)
+            $formatted = number_format($number / 1000, 1, ',', '') . 'K';
+        } else {
+            // Angka di bawah 1000 ditampilkan biasa
+            $formatted = $number;
+        }
+        
+        // Menghilangkan ,0 jika tidak ada desimal (1,0K menjadi 1K)
+        $formatted = str_replace(',0K', 'K', $formatted);
+        $formatted = str_replace(',0M', 'M', $formatted);
+        
+        return $formatted;
+    }
+
+    //Validasi x-token
+    function validasi_x_token($Conn,$token) {
+        
+        //Apabila token tidak ada
+        if(empty($token)){
+            $response="Token Tidak Boleh Kosong";
+        }else{
+            $stmt = $Conn->prepare("SELECT * FROM api_session WHERE session_token = :token AND datetime_expired > UTC_TIMESTAMP() LIMIT 1");
+            $stmt->execute([':token' => $token]);
+            $session = $stmt->fetch(PDO::FETCH_ASSOC);
+            if (!$session) {
+                $response="Token tidak valid atau kedaluwarsa.";
+            }else{
+                $response="Valid";
+            }
+        }
+        
+        return $response;
     }
 ?>

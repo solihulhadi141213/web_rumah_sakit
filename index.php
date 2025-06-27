@@ -1,11 +1,15 @@
 <?php
     //Koneksi
     require_once '_Config/Connection.php';
+    require_once '_Config/Function.php';
     require_once '_Config/log_visitor.php';
 
     // Inisialisasi koneksi database
     $db = new Database();
     $Conn = $db->getConnection();
+
+    //Include Pengaturan Website
+    require_once '_Config/Setting.php';
 
     // Mulai logging
     $logger = new VisitorLogger($Conn);
@@ -45,82 +49,21 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Rumah Sakit Umum El-Syifa Kuningan, Kabupaten Kuningan. Memberikan pelayanan kesehatan yang profesional dan terpercaya.">
-        <meta name="keywords" content="RSU, RS, RSU El-Syifa, RSEl-Syifa, Elsyifa, RS Elsyifa, RS El-Syifa, Kuningan, Kabupaten Kuningan, Kab. Kuningan">
-        <meta name="author" content="RSU El-Syifa Kuningan">
-        <meta name="robots" content="index, follow">
-        <title>Web | RSU EL-Syifa</title>
-
-        <!-- Open Graph -->
-        <meta property="og:title" content="RSU El-Syifa Kuningan">
-        <meta property="og:description" content="Rumah Sakit Umum El-Syifa Kuningan, Kabupaten Kuningan. Memberikan pelayanan kesehatan yang profesional dan terpercaya.">
-        <meta property="og:image" content="https://example.com/images/og-image.jpg">
-        <meta property="og:url" content="https://el-syifa-kuningan.id">
-        <meta property="og:type" content="website">
-
-        <!-- Open Graph untuk Social Media (Facebook, LinkedIn, dll) -->
-        <meta property="og:title" content="RSU El-Syifa Kuningan">
-        <meta property="og:description" content="">
-        <meta property="og:type" content="website">
-        <meta property="og:url" content="<?php echo $base_url; ?>">
-        <meta property="og:image" content="<?php echo $base_url; ?>/assets/img/favicon-32x32.png"> <!-- Ganti jika punya gambar banner OG khusus -->
-
-        <!-- Twitter Card -->
-        <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:title" content="RSU El-Syifa Kuningan">
-        <meta name="twitter:description" content="Rumah Sakit Umum El-Syifa Kuningan, Kabupaten Kuningan. Memberikan pelayanan kesehatan yang profesional dan terpercaya.">
-        <meta name="twitter:image" content="<?php echo $base_url; ?>/assets/img/favicon-32x32.png"> <!-- Ganti jika punya gambar banner Twitter khusus -->
-
-        <!-- Favicon & Icons -->
-        <link rel="apple-touch-icon" sizes="180x180" href="<?php echo $base_url; ?>/assets/img/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $base_url; ?>/assets/img/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $base_url; ?>/assets/img/favicon-16x16.png">
-        <link rel="manifest" href="<?php echo $base_url; ?>/assets/img/site.webmanifest">
-        
-        <!-- Canonical URL (SEO untuk mencegah duplikat) -->
-        <link rel="canonical" href="<?php echo $base_url; ?>">
-
-        <!-- Bootstrap -->
-        <link href="<?php echo $base_url; ?>/node_modules\bootstrap\dist\css\bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-        <script src="<?php echo $base_url; ?>/node_modules\bootstrap\dist\js\bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
-
-        <!-- Bootstrap Icon -->
-        <link rel="stylesheet" href="<?php echo $base_url; ?>/node_modules/bootstrap-icons/font/bootstrap-icons.min.css">
-
-        <!-- Google Fonts Roboto -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap">
-
-        <!-- Swiper -->
-        <link rel="stylesheet" href="<?php echo $base_url; ?>/node_modules/swiper/swiper-bundle.min.css"/>
-        <script src="<?php echo $base_url; ?>/node_modules/swiper/swiper-bundle.min.js"></script>
-
-        <!-- Go JS -->
-        <script src="<?php echo $base_url; ?>/assets/GoJs/release/go.js"></script>
-
-        <!-- Custome CSS -->
-        <link rel="stylesheet" href="<?php echo $base_url; ?>/assets/css/custome.css?v=<?php echo date('YmdHis'); ?>">
-    </head>
-    <div class="preloader">
-        <div class="loader">
-            <!-- Anda bisa gunakan spinner, logo, atau animasi SVG -->
-            <div class="spinner-border text-primary" role="status">
-                <span class="visually-hidden">Loading...</span>
-            </div>
-            <p class="mt-3">Memuat...</p>
-        </div>
-    </div>
+    <?php
+        //Menampilkan Partial
+        include "_Partial/Head.php";
+        include "_Partial/Preloader.php";
+    ?>
+    
     <body>
         <!-- HEADER -->
         <header class="container-fluid py-2 px-3">
             <div class="d-flex flex-wrap justify-content-between align-items-center">
                 <!-- Logo dan Judul -->
                 <div class="d-flex align-items-center gap-2">
-                    <img src="<?php echo $base_url; ?>/assets/img/67718ce144463.png" alt="Logo RSU El-Syifa" style="height: 40px;">
+                    <img src="<?php echo $base_url; ?>/assets/img/<?php echo $setting_logo_image_navbar; ?>" alt="<?php echo $setting_title_navbar; ?>" style="height: 40px;">
                     <h4 class="mb-0">
-                        <a href="" class="web-name text-decoration-none">RSU El-Syifa Kuningan</a>
+                        <a href="" class="web-name text-decoration-none"><?php echo $setting_title_navbar; ?></a>
                     </h4>
                 </div>
 
@@ -205,6 +148,8 @@
                 include "_Page/Contact/Contact.php";
             }elseif($Page=="Struktur-Organisasi"){
                 include "_Page/Struktur-Organisasi/Struktur-Organisasi.php";
+            }elseif($Page=="Galeri"){
+                include "_Page/Galeri/Galeri.php";
             }else{
                 include "_Page/Error/page-not-found.php";
             }
@@ -217,17 +162,6 @@
         <footer class="footer py-4">
             <div class="container">
                 <div class="row text-white">
-                    <!-- Kontak -->
-                    <div class="col-md-3 mb-3">
-                        <h5 class="text-decoration-underline">Tentang Kami</h5>
-                        <ul class="">
-                            <li><a href="https://kemkes.go.id" class="footer-link" target="_blank">Sejarah</a></li>
-                            <li><a href="https://kemkes.go.id" class="footer-link" target="_blank">Struktur Organisasi</a></li>
-                            <li><a href="https://kemkes.go.id" class="footer-link" target="_blank">Sarana Prasarana</a></li>
-                            <li><a href="https://kemkes.go.id" class="footer-link" target="_blank">Sumber Daya Manusia</a></li>
-                            <li><a href="https://kemkes.go.id" class="footer-link" target="_blank">Kontak Dan Lokasi</a></li>
-                        </ul>
-                    </div>
                     <!-- Link Eksternal -->
                     <div class="col-md-3 mb-3">
                         <h5 class="text-decoration-underline">Tautan Lainnya</h5>
@@ -239,13 +173,11 @@
                             <li><a href="https://kemkes.go.id" class="footer-link" target="_blank">Peta Situs</a></li>
                         </ul>
                     </div>
-                    <!-- Alamat -->
+                    <!-- Kontak -->
                     <div class="col-md-3 mb-3">
-                        <h5 class="text-decoration-underline">Alamat</h5>
-                        <p>Jalan RE Martadinata No 128 Kelurahan Ancaran, Kecamatan Kuningan, Kabupaten Kuningan, Jawa Barat.</p>
-                        
+                        <h5 class="text-decoration-underline">Kontak</h5>
                         <!-- Tambahan Kontak -->
-                        <div class="contact-info mt-3">
+                        <div class="contact-info">
                             <div class="d-flex align-items-center mb-2">
                                 <i class="bi bi-telephone me-2"></i>
                                 <span>(0232) 1234567</span>
@@ -259,6 +191,11 @@
                                 <span>info@rsuelsyifa.co.id</span>
                             </div>
                         </div>
+                    </div>
+                    <!-- Alamat -->
+                    <div class="col-md-3 mb-3">
+                        <h5 class="text-decoration-underline">Alamat</h5>
+                        <p>Jalan RE Martadinata No 128 Kelurahan Ancaran, Kecamatan Kuningan, Kabupaten Kuningan, Jawa Barat.</p>
                     </div>
                     <!-- Media Sosial -->
                     <div class="col-md-3 mb-3">
@@ -385,8 +322,8 @@
                 grabCursor: true,
                 pagination: {
                     el: '.swiper-pagination',
-                    clickable: true, // biar bisa diklik
-                    type: 'bullets', // tipe bullet (titik-titik)
+                    clickable: true,
+                    type: 'bullets',
                 },
                 navigation: {
                     nextEl: '.swiper-button-next',
@@ -400,21 +337,22 @@
             });
 
             //Infografis
-            const counters = document.querySelectorAll('.info_grafis h4');
-            const speed = 200;
+            // const counters = document.querySelectorAll('.info_grafis h4');
+            // const speed = 200;
 
-            counters.forEach(counter => {
-                const target = +counter.innerText;
-                const count = +counter.innerText;
-                const increment = target / speed;
+            // counters.forEach(counter => {
+            //     const target = +counter.innerText;
+            //     const count = +counter.innerText;
+            //     const increment = target / speed;
                 
-                if(count < target) {
-                    counter.innerText = Math.ceil(count + increment);
-                    setTimeout(updateCount, 1);
-                } else {
-                    counter.innerText = target;
-                }
-            });
+            //     if(count < target) {
+            //         counter.innerText = Math.ceil(count + increment);
+            //         setTimeout(updateCount, 1);
+            //     } else {
+            //         counter.innerText = target;
+            //     }
+            // });
+
             // Cek saat load
             tampilkanDenganTransisi();
             

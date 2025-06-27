@@ -17,12 +17,13 @@ Website ini dilengkapi dengan berbagai fitur modern berbasis web untuk meningkat
 - GoJs 3.0
 - jQuery 3.7
 ## API
-Berguna untuk mempermudah pengembangan lebih lanjut, atau juga dapat diintegrasikan dengan aplikasi SIMRS yang sudah ada. API berisikan proses pengelolaan semua konten pada website shingga dapat mempermudah mengelola konten website secara dinamis.
+Berguna untuk mempermudah pengembangan lebih lanjut, atau juga dapat diintegrasikan dengan aplikasi SIMRS yang sudah ada. API berisikan proses pengelolaan semua konten pada website shingga dapat mempermudah mengelola konten website secara dinamis. Baca dokumentasi https://rsuelsyifa.postman.co/workspace/SIRS-RSU-El-Syifa~d71f9396-0edb-41e8-8420-68ef7e205628/collection/12795177-725be71e-5d8f-455b-b8d2-47080092bf1c?action=share&source=copy-link&creator=12795177
 ## Lisensi
 - Apache License Version 2.0
 - Copyright (c) 2025 Rumah Sakit Umum El-Syifa
 ## Struktur Directory
-my-app/
+```bash
+ my-app/
 ├─ node_modules/
 ├─ public/
 │  ├─ favicon.ico
@@ -34,3 +35,5 @@ my-app/
 ├─ .gitignore
 ├─ package.json
 ├─ README.md
+```
+

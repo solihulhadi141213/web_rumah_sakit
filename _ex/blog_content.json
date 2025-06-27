@@ -1,0 +1,27 @@
+[
+    {
+        "type": "html",
+        "content": "<i>Assalamualaikum Waroh Matullahi Wabarokatu</i>",
+        "order_id": 1
+    },
+    {
+        "type": "html",
+        "content": "Salam sejahtera bagi kita semua!",
+        "order_id": 2
+    },
+    {
+        "type": "image",
+        "content": "img_685e62ab4e6f24.02875756.png",
+        "order_id": 3
+    },
+    {
+        "type": "text",
+        "content": "<i>Salam sejahtera bagi kita semua, semoga kita selalu diberikan berkah</i>",
+        "order_id": 4
+    },
+    {
+        "type": "image",
+        "content": "5db66db5d44c8d4379eb.png",
+        "order_id": 5
+    }
+]
