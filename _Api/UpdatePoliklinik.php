@@ -6,31 +6,26 @@
 
     header('Content-Type: application/json');
 
-    // Fungsi response JSON
     function sendResponse($data, $statusCode = 200) {
         http_response_code($statusCode);
         echo json_encode($data, JSON_UNESCAPED_UNICODE);
         exit;
     }
 
-    // Validasi metode POST
-    if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-        sendResponse(['status' => 'error', 'message' => 'Metode harus POST'], 405);
+    if ($_SERVER['REQUEST_METHOD'] !== 'PUT') {
+        sendResponse(['status' => 'error', 'message' => 'Metode harus PUT'], 405);
     }
 
-    // Load koneksi & fungsi
     require_once '../_Config/Connection.php';
     require_once '../_Config/Function.php';
     require_once '../_Config/log_visitor.php';
 
-    // Koneksi database
     try {
         $Conn = (new Database())->getConnection();
     } catch (Exception $e) {
         sendResponse(['status' => 'error', 'message' => 'Koneksi DB gagal: ' . $e->getMessage()], 500);
     }
 
-    // Validasi x-token
     $headers = getallheaders();
     $token = $headers['x-token'] ?? $headers['X-Token'] ?? '';
     if (empty($token)) {
@@ -41,23 +36,24 @@
         sendResponse(['status' => 'error', 'message' => $validasi_token], 401);
     }
 
-    // Ambil dan decode JSON
     $rawInput = file_get_contents("php://input");
     $input = json_decode($rawInput, true);
     if (!is_array($input)) {
         sendResponse(['status' => 'error', 'message' => 'Format JSON tidak valid'], 400);
     }
 
-    // Ambil data input
+    $id_poliklinik = (int)($input['id_poliklinik'] ?? 0);
     $poliklinik = trim($input['poliklinik'] ?? '');
     $deskripsi = trim($input['deskripsi'] ?? '');
     $kode = trim($input['kode'] ?? '');
     $status = trim($input['status'] ?? '');
     $fotoBase64 = trim($input['foto'] ?? '');
 
-    // Validasi data wajib
+    if ($id_poliklinik <= 0) {
+        sendResponse(['status' => 'error', 'message' => 'ID tidak valid'], 400);
+    }
     if ($poliklinik === '' || strlen($poliklinik) > 255) {
-        sendResponse(['status' => 'error', 'message' => 'Nama poliklinik tidak boleh kosong dan maksimal 255 karakter'], 400);
+        sendResponse(['status' => 'error', 'message' => 'Poliklinik tidak boleh kosong atau melebihi 255 karakter'], 400);
     }
     if (strlen($kode) > 20) {
         sendResponse(['status' => 'error', 'message' => 'Kode maksimal 20 karakter'], 400);
@@ -66,19 +62,26 @@
         sendResponse(['status' => 'error', 'message' => 'Status hanya boleh Aktif atau Non Aktif'], 400);
     }
 
-    // Sanitasi deskripsi (mencegah XSS/script injection)
-    $deskripsi = strip_tags($deskripsi, '<b><br><i><u><p><strong><em><ul><ol><li>'); // whitelist tag HTML
+    $deskripsi = strip_tags($deskripsi, '<b><br><i><u><p><strong><em><ul><ol><li>');
 
-    // Validasi duplikat kode
-    $stmtCheck = $Conn->prepare("SELECT COUNT(*) FROM poliklinik WHERE kode = :kode");
-    $stmtCheck->bindParam(':kode', $kode);
-    $stmtCheck->execute();
-    if ((int)$stmtCheck->fetchColumn() > 0) {
-        sendResponse(['status' => 'error', 'message' => 'Kode poliklinik sudah digunakan'], 409);
+    $stmtCek = $Conn->prepare("SELECT * FROM poliklinik WHERE id_poliklinik = :id_poliklinik LIMIT 1");
+    $stmtCek->bindParam(':id_poliklinik', $id_poliklinik);
+    $stmtCek->execute();
+    $oldData = $stmtCek->fetch(PDO::FETCH_ASSOC);
+    if (!$oldData) {
+        sendResponse(['status' => 'error', 'message' => 'Data poliklinik tidak ditemukan'], 404);
     }
 
-    // Simpan file foto jika ada
-    $namaFileFoto = null;
+    if ($kode !== $oldData['kode']) {
+        $stmtCheck = $Conn->prepare("SELECT COUNT(*) FROM poliklinik WHERE kode = :kode");
+        $stmtCheck->bindParam(':kode', $kode);
+        $stmtCheck->execute();
+        if ((int)$stmtCheck->fetchColumn() > 0) {
+            sendResponse(['status' => 'error', 'message' => 'Kode poliklinik sudah digunakan'], 409);
+        }
+    }
+
+    $namaFileFoto = $oldData['foto'];
     if (!empty($fotoBase64)) {
         if (!preg_match('/^data:image\/(png|jpeg|jpg);base64,/', $fotoBase64)) {
             sendResponse(['status' => 'error', 'message' => 'Format foto tidak valid'], 400);
@@ -99,8 +102,12 @@
         $folderPath = __DIR__ . '/../assets/img/_Poliklinik/';
         if (!is_dir($folderPath)) {
             if (!mkdir($folderPath, 0755, true)) {
-                sendResponse(['status' => 'error', 'message' => 'Gagal membuat folder penyimpanan foto'], 500);
+                sendResponse(['status' => 'error', 'message' => 'Gagal membuat folder foto'], 500);
             }
+        }
+
+        if (!empty($oldData['foto']) && file_exists($folderPath . $oldData['foto'])) {
+            unlink($folderPath . $oldData['foto']);
         }
 
         $namaFileFoto = 'poli_' . uniqid() . '.' . $mime;
@@ -111,21 +118,21 @@
         }
     }
 
-    // Simpan data ke database
     try {
-        $stmt = $Conn->prepare("INSERT INTO poliklinik (poliklinik, deskripsi, kode, status, foto, last_update) VALUES (:poliklinik, :deskripsi, :kode, :status, :foto, NOW())");
+        $stmt = $Conn->prepare("UPDATE poliklinik SET poliklinik = :poliklinik, deskripsi = :deskripsi, kode = :kode, status = :status, foto = :foto, last_update = NOW() WHERE id_poliklinik = :id_poliklinik");
         $stmt->bindParam(':poliklinik', $poliklinik);
         $stmt->bindParam(':deskripsi', $deskripsi);
         $stmt->bindParam(':kode', $kode);
         $stmt->bindParam(':status', $status);
         $stmt->bindParam(':foto', $namaFileFoto);
+        $stmt->bindParam(':id_poliklinik', $id_poliklinik);
         $stmt->execute();
 
         sendResponse([
             'status' => 'success',
-            'message' => 'Data poliklinik berhasil disimpan',
+            'message' => 'Data poliklinik berhasil diperbarui',
             'data' => [
-                'id_poliklinik' => $Conn->lastInsertId(),
+                'id_poliklinik' => $id_poliklinik,
                 'poliklinik' => $poliklinik,
                 'kode' => $kode,
                 'status' => $status,
@@ -133,6 +140,6 @@
             ]
         ]);
     } catch (PDOException $e) {
-        sendResponse(['status' => 'error', 'message' => 'Gagal menyimpan data: ' . $e->getMessage()], 500);
+        sendResponse(['status' => 'error', 'message' => 'Gagal update data: ' . $e->getMessage()], 500);
     }
 ?>
