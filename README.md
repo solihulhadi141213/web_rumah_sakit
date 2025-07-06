@@ -1,6 +1,9 @@
 # Website Official Rumah Sakit
 ## Deskripsi
 Website ini dilengkapi dengan berbagai fitur modern berbasis web untuk meningkatkan pelayanan, transparansi, dan interaktivitas. Menggunakan bootstrap 5 dengan kustomisasi pada CSS agar tampilan lebih baik. Website ini cocok untuk rumah sakit yang mengembangkan aplikasi secara mandiri karena mudah digunakan dan dapat dikembangkan lebih lanjut sesuai kebutuhan.
+<img src="assets/img/web_preview.png" alt="Struktur Sistem" width="100%" title="Arsitektur">
+
+
 ## Fitur Dan Halaman
 - **Hero Section** dengan slider informasi penting dan background image yang bisa diubah sesuai keinginan
 - **Sambutan Direktur** Menampilkan text sambutan direktur rumah sakit, serta foto direktur yang menambah tampilan lebih profesional

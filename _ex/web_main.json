@@ -1,247 +1,227 @@
 {
-    "meta_tag":{
+    "hero": {
+        "hero_igd": {
+            "image": "hero_2.jpg",
+            "title": "IGD 24 JAM",
+            "sub_title": "Hubungi : (0232) 876240 / +6289601154726"
+        },
+        "hero_welcome": {
+            "image": "hero_1.jpg",
+            "title": "Selamat Datang",
+            "sub_title": "Di Website RSU El-Syifa Kuningan"
+        },
+        "hero_media_sosial": {
+            "image": "hero_3.jpg",
+            "title": "Media Sosial Kami",
+            "sub_title": [
+                {
+                    "url": "https://www.facebook.com",
+                    "icon": "<i class=\"bi bi-facebook\"></i>",
+                    "order": 1
+                },
+                {
+                    "url": "https://www.youtube.com",
+                    "icon": "<i class=\"bi bi-youtube\"></i>",
+                    "order": 2
+                },
+                {
+                    "url": "https://www.instagram.com",
+                    "icon": "<i class=\"bi bi-instagram\"></i>",
+                    "order": 3
+                },
+                {
+                    "url": "https://www.threads.com",
+                    "icon": "<i class=\"bi bi-threads\"></i>",
+                    "order": 4
+                },
+                {
+                    "url": "https://www.whatsapp.com",
+                    "icon": "<i class=\"bi bi-whatsapp\"></i>",
+                    "order": 5
+                }
+            ]
+        }
+    },
+    "menu": [
+        {
+            "url": "/Kontak",
+            "label": "Kontak",
+            "order": 1,
+            "submenu": []
+        },
+        {
+            "url": "",
+            "label": "Beranda",
+            "order": 2,
+            "submenu": []
+        }
+    ],
+    "navbar": {
+        "title": "RSU El-Syifa Kuningan 2025",
+        "logo-image": "2fc8bbed67e18cdbd911542301704a20b5d8.png"
+    },
+    "favicon": {
+        "16x16": "favicon-16x16.png",
+        "32x32": "favicon-32x32.png",
+        "180x180": "apple-touch-icon.png",
+        "manifest": "site.webmanifest"
+    },
+    "meta_tag": {
         "type": "website",
-        "title": "RSU El-Syifa Kuningan",
+        "title": "RSU El-Syifa Kuningan 2000",
         "author": "Solihul Hadi",
         "robots": "index, follow",
         "base_url": "http://localhost/web_rumah_sakit",
         "keywords": "RSU, RS, RSU El-Syifa, RSEl-Syifa, Elsyifa, RS Elsyifa, RS El-Syifa, Kuningan, Kabupaten Kuningan, Kab. Kuningan",
-        "og-image": "apple-touch-icon.png",
+        "og-image": "a20482ffb1f80898fc1164fb05df9ced254d.png",
         "viewport": "width=device-width, initial-scale=1.0",
-        "logo-image": "67718ce144463.png",
+        "logo-image": "3c879207b5a6ca789b0c6e5c59719562a053.png",
         "description": "Rumah Sakit Umum El-Syifa Kuningan, Kabupaten Kuningan. Memberikan pelayanan kesehatan yang profesional dan terpercaya."
     },
-    "favicon": {
-        "180x180" : "apple-touch-icon.png",
-        "32x32" : "favicon-32x32.png",
-        "16x16" : "favicon-16x16.png",
-        "manifest" : "site.webmanifest"
-    },
-    "navbar":{
-        "logo-image": "67718ce144463.png",
-        "title": "RSU El-Syifa Kuningan"
-    },
-    "menu":[
-        {
-            "label":"Beranda",
-            "url":"",
-            "submenu":[]
-        },
-        {
-            "label":"Profil RS",
-            "url":"#submenuTentang",
-            "submenu":[
-                {
-                    "order":1,
-                    "label":"Struktur Organisasi",
-                    "url":"/Struktur-Organisasi"
-                }
-            ]
-        }
-    ],
-    "hero":{
-        "hero_welcome":{
-            "title":"Selamat Datang",
-            "sub_title":"Di Website RSU El-Syifa Kuningan",
-            "image":"hero_1.jpg"
-        },
-        "hero_igd":{
-            "title":"IGD 24 JAM",
-            "sub_title":"Hubungi : (0232) 876240 / +6289601154726",
-            "image":"hero_2.jpg"
-        },
-        "hero_media_sosial":{
-            "title":"Media Sosial Kami",
-            "sub_title":[
-                {
-                    "order":1,
-                    "url":"https://www.facebook.com",
-                    "icon":"<i class=\"bi bi-facebook\"></i>"
-                },
-                {
-                    "order":2,
-                    "url":"https://www.youtube.com",
-                    "icon":"<i class=\"bi bi-youtube\"></i>"
-                },
-                {
-                    "order":3,
-                    "url":"https://www.instagram.com",
-                    "icon":"<i class=\"bi bi-instagram\"></i>"
-                },
-                {
-                    "order":4,
-                    "url":"https://www.threads.com",
-                    "icon":"<i class=\"bi bi-threads\"></i>"
-                },
-                {
-                    "order":5,
-                    "url":"https://www.whatsapp.com",
-                    "icon":"<i class=\"bi bi-whatsapp\"></i>"
-                }
-            ],
-            "image":"hero_3.jpg"
-        }
-    },
-    "sambutan_direktur":{
-        "title": "Sambutan Direktur RSU El-Syifa Kuningan",
-        "sub_title": "Direktur RSU El-Syifa Kuningan",
-        "name": "Dr. H. Muhammad Ridwan, Sp.OG(K)",
-        "opening": "<p><b>Assalamu'alaikum Warahmatullahi Wabarakatuh</b></p><p>Merupakan suatu kehormatan dan kebahagiaan bagi kami, segenap keluarga besar Rumah Sakit Umum El-Syifa Kuningan, untuk menyambut Anda di platform daring resmi kami. Kehadiran website ini adalah wujud komitmen kami untuk semakin mendekatkan diri dengan masyarakat Kuningan dan sekitarnya, serta memberikan akses informasi yang mudah dan transparan mengenai layanan kesehatan yang kami sediakan.</p>",
-        "sambutan": "<p>RSU El-Syifa hadir sebagai bagian penting dari ekosistem kesehatan di Kabupaten Kuningan. Kami memegang teguh peran kami dalam meningkatkan kualitas hidup masyarakat melalui pelayanan kesehatan yang komprehensif, mulai dari promosi kesehatan, pencegahan penyakit, pengobatan yang efektif, hingga pemulihan yang optimal. Kami berupaya untuk menjadi mitra terpercaya bagi Anda dalam menjaga kesehatan diri dan keluarga.</p><p>Saat ini, RSU El-Syifa didukung oleh tim medis yang profesional dan penuh dedikasi, terdiri dari sejumlah dokter dengan berbagai spesialisasi untuk menangani beragam kebutuhan kesehatan Anda. Sebagai rumah sakit tipe [sebutkan tipe rumah sakit, misalnya: C], kami memiliki fasilitas rawat inap dengan kapasitas [sebutkan jumlah] tempat tidur yang nyaman dan memadai. Selain itu, kami menyediakan layanan rawat jalan melalui [sebutkan jumlah] poliklinik, termasuk di antaranya [sebutkan beberapa contoh poli, misalnya: Poli Umum, Poli Anak, Poli Kandungan & Kebidanan, Poli Bedah, dan lain-lain]. Keberhasilan kami meraih akreditasi [sebutkan status akreditasi, misalnya: Paripurna] dari [sebutkan lembaga akreditasi] merupakan pencapaian yang membanggakan dan menjadi motivasi kami untuk terus memberikan pelayanan terbaik sesuai standar mutu yang ditetapkan.</p><p>Manajemen RSU El-Syifa memiliki visi yang jelas untuk terus meningkatkan kualitas pelayanan demi kepuasan dan kesembuhan pasien. Kami berjanji untuk senantiasa berinovasi, mengembangkan sumber daya, memperbarui fasilitas, dan mengadopsi teknologi terkini agar dapat memberikan pelayanan yang lebih efisien, efektif, dan berorientasi pada kebutuhan Anda. Kami terbuka terhadap saran dan masukan dari masyarakat demi mewujudkan pelayanan kesehatan yang semakin baik di masa depan.</p><p>Kami berharap website ini dapat memberikan informasi yang Anda butuhkan mengenai layanan, fasilitas, jadwal dokter, prosedur pendaftaran, dan informasi penting lainnya tentang RSU El-Syifa Kuningan. Jangan ragu untuk menghubungi kami jika Anda memerlukan bantuan lebih lanjut.</p><p>Terima kasih atas kepercayaan Anda kepada RSU El-Syifa Kuningan. Kesehatan Anda adalah prioritas kami.</p><p><b>Wassalamualaikum warahmatullahi wabarakatuh.</b></p>",
-        "foto": "picture.jpg"
-    },
-    "visi_misi":{
-        "title": "Visi, Misi & Motto Rumah Sakit",
-        "visi": "Melayani masyarakat dalam memperoleh haknya untuk mendapatkan pelayanan kesehatan yang berkualitas sesuai moto rumah sakit : Etis, Logis, Sabar, Yakin, Islami, Fitrah, Amanah",
+    "visi_misi": {
         "misi": "<ol>\n    <li>Memberikan pelayanan kesehatan yang berkualitas sesuai dengan syariat islami.</li>\n    <li>Ikut berperan serta dalam kegiatan sosial kemasyarakatan dan berperan serta dalam pembangunan daerah.</li>\n</ol>",
-        "motto": "Etis, Logis, Sabar, Yakin, Islami, Fitrah, Amanah"
+        "visi": "Melayani masyarakat dalam memperoleh haknya untuk mendapatkan pelayanan kesehatan yang berkualitas sesuai moto rumah sakit : Etis, Logis, Sabar, Yakin, Islami, Fitrah, Amanah",
+        "motto": "Etis, Logis, Sabar, Yakin, Islami, Fitrah, Amanah",
+        "title": "Visi, Misi & Motto Rumah Sakit"
     },
-    "info_grafis":{
-        "title":"Info Grafis",
-        "bg_image":"info_grafis.jpg",
-        "list_content":[
+    "info_grafis": {
+        "title": "Info Grafis",
+        "bg_image": "info_grafis.jpg",
+        "list_content": [
             {
-                "name":"Pasien",
-                "count":1000,
-                "icon": "<i class=\"bi bi-person-lines-fill\"></i>"
+                "icon": "<i class=\"bi bi-person-lines-fill\"></i>",
+                "name": "Pasien",
+                "count": 1000
             },
             {
-                "name":"Kunjungan",
-                "count":1500,
-                "icon": "<i class=\"bi bi-person\"></i>"
+                "icon": "<i class=\"bi bi-person\"></i>",
+                "name": "Kunjungan",
+                "count": 1500
             },
             {
-                "name":"Radiologi",
-                "count":2500,
-                "icon": "<i class=\"bi bi-person\"></i>"
+                "icon": "<i class=\"bi bi-person\"></i>",
+                "name": "Radiologi",
+                "count": 2500
             },
             {
-                "name":"Laboratorium",
-                "count":3500,
-                "icon": "<i class=\"bi bi-person\"></i>"
+                "icon": "<i class=\"bi bi-person\"></i>",
+                "name": "Laboratorium",
+                "count": 3500
             }
         ]
     },
-    "jadwal_dokter":{
-        "title":"Jadwal Dokter",
-        "subtitle":"Klik Tombol Detail Untuk Melihat Informasi Lengkap Jadwal",
-        "data_limit":8
-    },
-    "pendaftaran_antrian":{
-        "title":"Antrian Online",
-        "subtitle":"Dapatkan kemudahan mendapatkan nomor antrian berobat <b>tanpa menunggu lama</b>. Anda bisa mendaftar langsung melalui aplikasi <b>JKN Mobile.</b>",
-        "url":"https://jknmobile.com/#unduh_android"
-    },
-    "unit_instalasi":{
-        "title":"Unit & Instalasi",
-        "bg_image":"service.jpg",
-        "limit":6,
-        "data_list":
-        [
+    "partnership": [
+        {
+            "logo": "Biznet.png",
+            "order": 1,
+            "company": "Biznet"
+        },
+        {
+            "logo": "bpjs.png",
+            "order": 2,
+            "company": "BPJS"
+        },
+        {
+            "logo": "bsi.png",
+            "order": 3,
+            "company": "bsi"
+        },
+        {
+            "logo": "fresenius.png",
+            "order": 4,
+            "company": "fresenius"
+        },
+        {
+            "logo": "Hana_Bank.png",
+            "order": 5,
+            "company": "Hana_Bank"
+        },
+        {
+            "logo": "kemenkes.png",
+            "order": 6,
+            "company": "kemenkes"
+        },
+        {
+            "logo": "Kuningan.png",
+            "order": 7,
+            "company": "Kuningan"
+        },
+        {
+            "logo": "niaga.png",
+            "order": 8,
+            "company": "niaga"
+        }
+    ],
+    "content_blog": [
+        {
+            "type": "text",
+            "order": 1,
+            "content": "Assalamualaikum"
+        }
+    ],
+    "unit_instalasi": {
+        "title": "Unit & Instalasi",
+        "bg_image": "service.jpg",
+        "data_list": [
             {
-                "id":1,
-                "name":"Laboratorium",
-                "icon":"<i class=\"bi bi-flask\"></i>",
-                "description":[
+                "id": 1,
+                "icon": "<i class=\"bi bi-flask\"></i>",
+                "name": "Laboratorium",
+                "description": [
                     {
-                        "row":1,
-                        "type":"text",
-                        "content":"<i>Laboratorium adalah ruang atau fasilitas yang dirancang untuk melakukan penelitian, eksperimen, analisis ilmiah, atau praktikum dalam bidang ilmu tertentu (seperti kimia, biologi, fisika, kedokteran, teknik, dll).</i>"
+                        "row": 1,
+                        "type": "text",
+                        "content": "<i>Laboratorium adalah ruang atau fasilitas yang dirancang untuk melakukan penelitian, eksperimen, analisis ilmiah, atau praktikum dalam bidang ilmu tertentu (seperti kimia, biologi, fisika, kedokteran, teknik, dll).</i>"
                     },
                     {
-                        "row":2,
-                        "type":"text",
-                        "content":"<small>Dilengkapi alat-alat seperti mikroskop, tabung reaksi, spektrometer, komputer analisis, dll.</small>"
+                        "row": 2,
+                        "type": "text",
+                        "content": "<small>Dilengkapi alat-alat seperti mikroskop, tabung reaksi, spektrometer, komputer analisis, dll.</small>"
                     }
                 ]
             },
             {
-                "id":2,
-                "name":"Radiologi",
-                "icon":"<i class=\"bi bi-radioactive\"></i>",
-                "description":[
+                "id": 2,
+                "icon": "<i class=\"bi bi-radioactive\"></i>",
+                "name": "Radiologi",
+                "description": [
                     {
-                        "row":1,
-                        "type":"text",
-                        "content":"<i>Laboratorium adalah ruang atau fasilitas yang dirancang untuk melakukan penelitian, eksperimen, analisis ilmiah, atau praktikum dalam bidang ilmu tertentu (seperti kimia, biologi, fisika, kedokteran, teknik, dll).</i>"
+                        "row": 1,
+                        "type": "text",
+                        "content": "<i>Laboratorium adalah ruang atau fasilitas yang dirancang untuk melakukan penelitian, eksperimen, analisis ilmiah, atau praktikum dalam bidang ilmu tertentu (seperti kimia, biologi, fisika, kedokteran, teknik, dll).</i>"
                     },
                     {
-                        "row":2,
-                        "type":"text",
-                        "content":"<small>Dilengkapi alat-alat seperti mikroskop, tabung reaksi, spektrometer, komputer analisis, dll.</small>"
+                        "row": 2,
+                        "type": "text",
+                        "content": "<small>Dilengkapi alat-alat seperti mikroskop, tabung reaksi, spektrometer, komputer analisis, dll.</small>"
                     }
-                ] 
+                ]
             },
             {
-                "id":3,
-                "name":"Farmasi",
-                "icon":"<i class=\"bi bi-capsule-pill\"></i>",
-                "description":[
+                "id": 3,
+                "icon": "<i class=\"bi bi-capsule-pill\"></i>",
+                "name": "Farmasi",
+                "description": [
                     {
-                        "row":1,
-                        "type":"text",
-                        "content":"<i>Laboratorium adalah ruang atau fasilitas yang dirancang untuk melakukan penelitian, eksperimen, analisis ilmiah, atau praktikum dalam bidang ilmu tertentu (seperti kimia, biologi, fisika, kedokteran, teknik, dll).</i>"
+                        "row": 1,
+                        "type": "text",
+                        "content": "<i>Laboratorium adalah ruang atau fasilitas yang dirancang untuk melakukan penelitian, eksperimen, analisis ilmiah, atau praktikum dalam bidang ilmu tertentu (seperti kimia, biologi, fisika, kedokteran, teknik, dll).</i>"
                     },
                     {
-                        "row":2,
-                        "type":"text",
-                        "content":"<small>Dilengkapi alat-alat seperti mikroskop, tabung reaksi, spektrometer, komputer analisis, dll.</small>"
+                        "row": 2,
+                        "type": "text",
+                        "content": "<small>Dilengkapi alat-alat seperti mikroskop, tabung reaksi, spektrometer, komputer analisis, dll.</small>"
                     }
-                ] 
+                ]
             }
         ]
     },
-    "content_blog":{
-        "title":"Berita Dan Artikel",
-        "subtitle":"Kumpulan berita terbaru dan artikel kesehatan",
-        "limit":4
-    },
-    "galeri":{
-        "title":"Galeri & Aktivitas",
-        "subtitle":"Arsip dan galeri kegiatan yang pernah dilaksanakan",
-        "limit":4
-    },
-    "partnership":[
-        {
-            "order":1,
-            "company":"Biznet",
-            "logo":"Biznet.png"
-        },
-        {
-            "order":2,
-            "company":"BPJS",
-            "logo":"bpjs.png"
-        },
-        {
-            "order":3,
-            "company":"bsi",
-            "logo":"bsi.png"
-        },
-        {
-            "order":4,
-            "company":"fresenius",
-            "logo":"fresenius.png"
-        },
-        {
-            "order":5,
-            "company":"Hana_Bank",
-            "logo":"Hana_Bank.png"
-        },
-        {
-            "order":6,
-            "company":"kemenkes",
-            "logo":"kemenkes.png"
-        },
-        {
-            "order":7,
-            "company":"Kuningan",
-            "logo":"Kuningan.png"
-        },
-        {
-            "order":8,
-            "company":"niaga",
-            "logo":"niaga.png"
-        }
-    ],
-    "google_map": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.3111552771284!2d108.5199406!3d-6.9725692!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f16aaf953c4bb%3A0xa0edc117fc5e90b7!2sRS%20EL-SYIFA%20KUNINGAN!5e0!3m2!1sen!2sid!4v1746967246290!5m2!1sen!2sid\" width=\"100%\" height=\"350\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\" class=\"mb-0\"></iframe>"
+    "sambutan_direktur": {
+        "foto": "picture.jpg",
+        "name": "Dr. H. Muhammad Ridwan, Sp.OG(K)",
+        "title": "Sambutan Direktur RSU El-Syifa Kuningan",
+        "opening": "<p><b>Assalamu'alaikum Warahmatullahi Wabarakatuh</b></p><p>Merupakan suatu kehormatan dan kebahagiaan bagi kami, segenap keluarga besar Rumah Sakit Umum El-Syifa Kuningan, untuk menyambut Anda di platform daring resmi kami. Kehadiran website ini adalah wujud komitmen kami untuk semakin mendekatkan diri dengan masyarakat Kuningan dan sekitarnya, serta memberikan akses informasi yang mudah dan transparan mengenai layanan kesehatan yang kami sediakan.</p>",
+        "sambutan": "<p>RSU El-Syifa hadir sebagai bagian penting dari ekosistem kesehatan di Kabupaten Kuningan. Kami memegang teguh peran kami dalam meningkatkan kualitas hidup masyarakat melalui pelayanan kesehatan yang komprehensif, mulai dari promosi kesehatan, pencegahan penyakit, pengobatan yang efektif, hingga pemulihan yang optimal. Kami berupaya untuk menjadi mitra terpercaya bagi Anda dalam menjaga kesehatan diri dan keluarga.</p><p>Saat ini, RSU El-Syifa didukung oleh tim medis yang profesional dan penuh dedikasi, terdiri dari sejumlah dokter dengan berbagai spesialisasi untuk menangani beragam kebutuhan kesehatan Anda. Sebagai rumah sakit tipe [sebutkan tipe rumah sakit, misalnya: C], kami memiliki fasilitas rawat inap dengan kapasitas [sebutkan jumlah] tempat tidur yang nyaman dan memadai. Selain itu, kami menyediakan layanan rawat jalan melalui [sebutkan jumlah] poliklinik, termasuk di antaranya [sebutkan beberapa contoh poli, misalnya: Poli Umum, Poli Anak, Poli Kandungan & Kebidanan, Poli Bedah, dan lain-lain]. Keberhasilan kami meraih akreditasi [sebutkan status akreditasi, misalnya: Paripurna] dari [sebutkan lembaga akreditasi] merupakan pencapaian yang membanggakan dan menjadi motivasi kami untuk terus memberikan pelayanan terbaik sesuai standar mutu yang ditetapkan.</p><p>Manajemen RSU El-Syifa memiliki visi yang jelas untuk terus meningkatkan kualitas pelayanan demi kepuasan dan kesembuhan pasien. Kami berjanji untuk senantiasa berinovasi, mengembangkan sumber daya, memperbarui fasilitas, dan mengadopsi teknologi terkini agar dapat memberikan pelayanan yang lebih efisien, efektif, dan berorientasi pada kebutuhan Anda. Kami terbuka terhadap saran dan masukan dari masyarakat demi mewujudkan pelayanan kesehatan yang semakin baik di masa depan.</p><p>Kami berharap website ini dapat memberikan informasi yang Anda butuhkan mengenai layanan, fasilitas, jadwal dokter, prosedur pendaftaran, dan informasi penting lainnya tentang RSU El-Syifa Kuningan. Jangan ragu untuk menghubungi kami jika Anda memerlukan bantuan lebih lanjut.</p><p>Terima kasih atas kepercayaan Anda kepada RSU El-Syifa Kuningan. Kesehatan Anda adalah prioritas kami.</p><p><b>Wassalamualaikum warahmatullahi wabarakatuh.</b></p>",
+        "sub_title": "Direktur RSU El-Syifa Kuningan"
+    }
 }
