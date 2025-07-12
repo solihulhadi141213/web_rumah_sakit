@@ -1,18 +1,18 @@
 {
     "hero": {
         "hero_igd": {
-            "image": "hero_2.jpg",
+            "image": "f98d3bedd022d456d65b858a7fca3a1a9225.png",
             "title": "IGD 24 JAM",
             "sub_title": "Hubungi : (0232) 876240 / +6289601154726"
         },
         "hero_welcome": {
-            "image": "hero_1.jpg",
+            "image": "42f91f44ca1dbdc2a9f9c4a0adfa5cb5a0ab.png",
             "title": "Selamat Datang",
             "sub_title": "Di Website RSU El-Syifa Kuningan"
         },
         "hero_media_sosial": {
-            "image": "hero_3.jpg",
-            "title": "Media Sosial Kami",
+            "image": "0a50aeb89593e434daaa5932052010d5841b.png",
+            "title": "Selamat Datang",
             "sub_title": [
                 {
                     "url": "https://www.facebook.com",
@@ -44,15 +44,15 @@
     },
     "menu": [
         {
-            "url": "/Kontak",
-            "label": "Kontak",
-            "order": 1,
-            "submenu": []
-        },
-        {
             "url": "",
             "label": "Beranda",
             "order": 2,
+            "submenu": []
+        },
+        {
+            "url": "/Tentang",
+            "label": "Tentang",
+            "order": 3,
             "submenu": []
         }
     ],
@@ -86,7 +86,7 @@
     },
     "info_grafis": {
         "title": "Info Grafis",
-        "bg_image": "info_grafis.jpg",
+        "bg_image": "c7f9587bb974603a4ba4cdb1c0ec22e1e335.png",
         "list_content": [
             {
                 "icon": "<i class=\"bi bi-person-lines-fill\"></i>",
@@ -161,10 +161,10 @@
     ],
     "unit_instalasi": {
         "title": "Unit & Instalasi",
-        "bg_image": "service.jpg",
+        "bg_image": "675a3fd7459ad840e21fde99b78f3a7afc7f.png",
         "data_list": [
             {
-                "id": 1,
+                "id": "1",
                 "icon": "<i class=\"bi bi-flask\"></i>",
                 "name": "Laboratorium",
                 "description": [
@@ -181,7 +181,7 @@
                 ]
             },
             {
-                "id": 2,
+                "id": "2",
                 "icon": "<i class=\"bi bi-radioactive\"></i>",
                 "name": "Radiologi",
                 "description": [
@@ -198,7 +198,7 @@
                 ]
             },
             {
-                "id": 3,
+                "id": "3",
                 "icon": "<i class=\"bi bi-capsule-pill\"></i>",
                 "name": "Farmasi",
                 "description": [
@@ -217,7 +217,7 @@
         ]
     },
     "sambutan_direktur": {
-        "foto": "picture.jpg",
+        "foto": "0ebfd4c312ac11802bc664b386eeb2aa3031.png",
         "name": "Dr. H. Muhammad Ridwan, Sp.OG(K)",
         "title": "Sambutan Direktur RSU El-Syifa Kuningan",
         "opening": "<p><b>Assalamu'alaikum Warahmatullahi Wabarakatuh</b></p><p>Merupakan suatu kehormatan dan kebahagiaan bagi kami, segenap keluarga besar Rumah Sakit Umum El-Syifa Kuningan, untuk menyambut Anda di platform daring resmi kami. Kehadiran website ini adalah wujud komitmen kami untuk semakin mendekatkan diri dengan masyarakat Kuningan dan sekitarnya, serta memberikan akses informasi yang mudah dan transparan mengenai layanan kesehatan yang kami sediakan.</p>",
