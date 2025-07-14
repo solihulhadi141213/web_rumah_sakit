@@ -588,12 +588,19 @@
 </div>
 
 <!-- GOOGLE MAP -->
-<div class="container-fluid px-0 g-0 mb-0">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.3111552771284!2d108.5199406!3d-6.9725692!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f16aaf953c4bb%3A0xa0edc117fc5e90b7!2sRS%20EL-SYIFA%20KUNINGAN!5e0!3m2!1sen!2sid!4v1746967246290!5m2!1sen!2sid" 
-    width="100%" 
-    height="350" 
-    style="border:0;" 
-    allowfullscreen="" 
-    loading="lazy" 
-    referrerpolicy="no-referrer-when-downgrade" class="mb-0"></iframe>
-</div>
+ <?php
+    if(!empty($arry_static['google_map'])){
+        echo '
+            <div class="container-fluid px-0 g-0 mb-0">
+                <iframe src="'.$arry_static['google_map']['src'].'" 
+                width="'.$arry_static['google_map']['width'].'" 
+                height="'.$arry_static['google_map']['height'].'" 
+                style="'.$arry_static['google_map']['style'].'" 
+                allowfullscreen="'.$arry_static['google_map']['allowfullscreen'].'" 
+                loading="'.$arry_static['google_map']['loading'].'" 
+                referrerpolicy="'.$arry_static['google_map']['referrerpolicy'].'" class="'.$arry_static['google_map']['class'].'">
+                </iframe>
+            </div>
+        ';
+    }
+ ?>
