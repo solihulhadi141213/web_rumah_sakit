@@ -121,6 +121,46 @@
             $setting_visi_misi_motto="";
         }
 
+        //Variabel Jadwal Dokter
+        if(!empty($arry_static['jadwal_dokter'])){
+            $setting_jadwal_dokter_title=$arry_static['jadwal_dokter']['title'];
+            $setting_jadwal_dokter_subtitle=$arry_static['jadwal_dokter']['subtitle'];
+            $setting_jadwal_dokter_limit=$arry_static['jadwal_dokter']['limit'];
+        }else{
+            //Empty Jadwal Dokter
+            $setting_jadwal_dokter_title="";
+            $setting_jadwal_dokter_subtitle="";
+            $setting_jadwal_dokter_limit=0;
+        }
+
+        //Variabel Pendaftaran Antrian
+        if(!empty($arry_static['pendaftaran_antrian'])){
+            $setting_pendaftaran_antrian_title=$arry_static['pendaftaran_antrian']['title'];
+            $setting_pendaftaran_antrian_subtitle=$arry_static['pendaftaran_antrian']['subtitle'];
+            $setting_pendaftaran_antrian_icon=$arry_static['pendaftaran_antrian']['icon'];
+            $setting_pendaftaran_antrian_label=$arry_static['pendaftaran_antrian']['label'];
+            $setting_pendaftaran_antrian_url=$arry_static['pendaftaran_antrian']['url'];
+        }else{
+            //Empty Pendaftaran Antrian
+            $setting_pendaftaran_antrian_title="";
+            $setting_pendaftaran_antrian_subtitle="";
+            $setting_pendaftaran_antrian_icon="";
+            $setting_pendaftaran_antrian_label="";
+            $setting_pendaftaran_antrian_url="";
+        }
+
+        //Variabel Berita Dan Artikel
+        if(!empty($arry_static['berita_artikel'])){
+            $setting_berita_artikel_title=$arry_static['berita_artikel']['title'];
+            $setting_berita_artikel_subtitle=$arry_static['berita_artikel']['subtitle'];
+            $setting_berita_artikel_limit=$arry_static['berita_artikel']['limit'];
+        }else{
+            //Empty Berita Dan Artikel
+            $setting_berita_artikel_title="";
+            $setting_berita_artikel_subtitle="";
+            $setting_berita_artikel_limit="";
+        }
+
         //Variabel Info Grafis
         if(!empty($arry_static['info_grafis'])){
             $setting_info_grafis_title=$arry_static['info_grafis']['title'];
@@ -186,6 +226,23 @@
         $setting_visi_misi_visi="";
         $setting_visi_misi_misi="";
         $setting_visi_misi_motto="";
+
+         //Empty Jadwal Dokter
+        $setting_jadwal_dokter_title="";
+        $setting_jadwal_dokter_subtitle="";
+        $setting_jadwal_dokter_limit=0;
+
+        //Empty Pendaftaran Antrian
+        $setting_pendaftaran_antrian_title="";
+        $setting_pendaftaran_antrian_subtitle="";
+        $setting_pendaftaran_antrian_icon="";
+        $setting_pendaftaran_antrian_label="";
+        $setting_pendaftaran_antrian_url="";
+
+        //Empty Berita Dan Artikel
+        $setting_berita_artikel_title="";
+        $setting_berita_artikel_subtitle="";
+        $setting_berita_artikel_limit="";
 
         //Empty Info Grafis
         $setting_info_grafis_title="";

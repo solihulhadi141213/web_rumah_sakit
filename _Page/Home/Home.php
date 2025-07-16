@@ -206,8 +206,8 @@
     <div class="container my-5">
         <div class="row mb-3">
             <div class="col-12 text-center">
-                <span class="h1 mb-4 title_segment_dark">Jadwal Dokter</span>
-                <p><i>Klik Tombol Detail Untuk Melihat Informasi Lengkap Jadwal</i></p>
+                <span class="h1 mb-4 title_segment_dark"><?php echo $setting_jadwal_dokter_title; ?></span>
+                <p><i><?php echo $setting_jadwal_dokter_subtitle; ?></i></p>
             </div>
         </div>
         <!-- SWIPER SLIDER DOKTER -->
@@ -216,7 +216,7 @@
                 <div class="swiper mySwiper">
                     <div class="swiper-wrapper mb-4">
                         <?php
-                            $limit_dokter = 1000;
+                            $limit_dokter = $setting_jadwal_dokter_limit;
                             $sql_dokter = "SELECT id_dokter, kode, nama, spesialis, foto FROM dokter ORDER BY id_dokter DESC LIMIT :limit";
                             $stmt_dokter = $Conn->prepare($sql_dokter);
                             $stmt_dokter->bindParam(':limit', $limit_dokter, PDO::PARAM_INT);
@@ -227,11 +227,11 @@
                                     echo '
                                         <div class="swiper-slide">
                                             <div class="card border-0 shadow doctor-card show_transisi">
-                                                <img src="'.$base_url.'assets/img/_Dokter/'.$dokter['foto'].'" class="card-img-top" alt="'.$dokter['nama'].'">
+                                                <img src="'.$base_url.'image_proxy.php?segment=Dokter&image_name='.$dokter['foto'].'" class="card-img-top" alt="'.$dokter['nama'].'">
                                                 <div class="card-body text-center">
                                                     <h5 class="card-title">'.$dokter['nama'].'</h5>
                                                     <p class="card-text text-muted">'.$dokter['spesialis'].'</p>
-                                                    <a href="#" class="btn btn-success btn-sm">
+                                                    <a href="javascript:void(0);" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#ModalDetailDokter" data-id="'.$dokter['id_dokter'].'">
                                                         Lihat Detail <i class="bi bi-chevron-right"></i>
                                                     </a>
                                                 </div>
@@ -262,18 +262,17 @@
     <div class="container my-5 py-4">
         <div class="row align-items-center">
             <div class="col-md-12 text-center mb-3">
-                <h2 class="h1 mb-3 title_segment_dark">Pendaftaran Antrian</h2>
+                <h2 class="h1 mb-3 title_segment_dark">
+                    <?php echo  $setting_pendaftaran_antrian_title; ?>
+                </h2>
                 <p class="lead text-dark fw-normal show_transisi">
-                    Dapatkan kemudahan mendapatkan nomor antrian berobat <b>tanpa menunggu lama</b>. 
-                    Anda bisa mendaftar langsung melalui website ini atau aplikasi <b>JKN Mobile</b>.
+                    <?= htmlspecialchars_decode($setting_pendaftaran_antrian_subtitle); ?>
                 </p>
             </div>
             <div class="col-md-12 text-center mb-3">
-                <a href="#" class="btn-daftar show_transisi">
-                    <i class="bi bi-pencil"></i> Daftar Antrian
-                </a>
-                <a href="#" class="btn-jkn mt-3 d-inline-block show_transisi">
-                    <i class="bi bi-google-play"></i> Download JKN Mobile
+                <a href="<?php echo  $setting_pendaftaran_antrian_url; ?>" class="btn-jkn mt-3 d-inline-block show_transisi">
+                    <?= html_entity_decode($setting_pendaftaran_antrian_icon); ?>
+                    <?php echo  "$setting_pendaftaran_antrian_label"; ?>
                 </a>
             </div>
         </div>
@@ -338,15 +337,30 @@
             <div class="col-12">
                 <div class="swiper room_swiper">
                     <div class="swiper-wrapper mb-4">
-                        <div class="swiper-slide">
-                            <div class="room-card show_transisi">
-                                <span class="room-icon">
-                                    <i class="bi bi-building-check"></i>
-                                </span>
-                                <h3 class="class-room-name">Kelas VIP Ketersediaan Ruang Rawat Inap 24 Jam</h3>
-                                <a href="" class="room-detail">Lihat Detail</a>
-                            </div>
-                        </div>
+                        <?php
+                            $limit_rr = 10;
+                            $sql_rr = "SELECT id_ruang_rawat, ruang_rawat, kelas, kode_kelas FROM ruang_rawat ORDER BY datetime_update DESC LIMIT :limit";
+                            $stmt_ss = $Conn->prepare($sql_rr);
+                            $stmt_ss->bindParam(':limit', $limit_rr, PDO::PARAM_INT);
+                            $stmt_ss->execute();
+                            $RuangRawatList = $stmt_ss->fetchAll();
+                            if (count($RuangRawatList) > 0) {
+                                foreach ($RuangRawatList as $ruang_rawat) {
+                                    echo '
+                                        <div class="swiper-slide">
+                                            <div class="room-card show_transisi">
+                                                <span class="room-icon">
+                                                    <i class="bi bi-building-check"></i>
+                                                </span>
+                                                <h3 class="class-room-name">'.$ruang_rawat['ruang_rawat'].'<br>('.$ruang_rawat['kelas'].')</h3>
+                                                <a href="" class="room-detail">Lihat Detail</a>
+                                            </div>
+                                        </div>
+                                    ';
+                                }
+                            }
+                        ?>
+<!--                         
                         <div class="swiper-slide">
                             <div class="room-card show_transisi">
                                 <span class="room-icon">
@@ -409,7 +423,7 @@
                                 <h3 class="class-room-name">Kelas 3 Umum Ketersediaan Ruang Rawat Inap 24 Jam</h3>
                                 <a href="" class="room-detail">Lihat Detail</a>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="room-pagination"></div>
                 </div>
@@ -430,59 +444,41 @@
     <div class="container my-5">
         <div class="row mb-3">
             <div class="col-12 text-center">
-                <span class="h1 mb-4 title_segment_dark">Berita & Artikel</span>
-                <p><i>Kumpulan berita terbaru dan artikel kesehatan</i></p>
+                <span class="h1 mb-4 title_segment_dark">
+                    <?php echo "$setting_berita_artikel_title"; ?>
+                </span>
+                <p><i><?php echo "$setting_berita_artikel_subtitle"; ?></i></p>
             </div>
         </div>
         <div class="row mb-5">
-            <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-3">
-                <div class="card h-100 d-flex flex-column show_transisi" style="width: 100%;">
-                    <div class="img-square-wrapper">
-                        <img src="<?php echo $base_url; ?>image_proxy.php?segment=Artikel&image_name=artikel_1.jpg" class="card-img-top" alt="...">
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Power Walking Berbeda dengan Jalan Kaki, Ini Manfaatnya!</h5>
-                        <p class="card-text">Healthy Lifestyle</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-3">
-                <div class="card h-100 d-flex flex-column show_transisi" style="width: 100%;">
-                    <div class="img-square-wrapper">
-                        <img src="<?php echo $base_url; ?>image_proxy.php?segment=Artikel&image_name=artikel_2.jpg" class="card-img-top" alt="...">
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Perhatikan Pantangan Kista Ginjal untuk Hidup Lebih Sehat!</h5>
-                        <p class="card-text">Dokter Spesialis Kandungan</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-3">
-                <div class="card h-100 d-flex flex-column show_transisi" style="width: 100%;">
-                    <div class="img-square-wrapper">
-                        <img src="<?php echo $base_url; ?>image_proxy.php?segment=Artikel&image_name=artikel_3.jpg" class="card-img-top" alt="...">
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            Rutin Sit Up Bisa Kencangkan Otot Perut dan Perbaiki Postur.
-                        </h5>
-                        <p class="card-text">Dokter Spesialis Kandungan</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-3">
-                <div class="card h-100 d-flex flex-column show_transisi" style="width: 100%;">
-                    <div class="img-square-wrapper">
-                        <img src="<?php echo $base_url; ?>image_proxy.php?segment=Artikel&image_name=artikel_4.jpg" class="card-img-top" alt="...">
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            Pengertian Covid
-                        </h5>
-                        <p class="card-text">Dokter Spesialis Kandungan</p>
-                    </div>
-                </div>
-            </div>
+            <?php
+                $limit_berita = $setting_berita_artikel_limit;
+                $sql_berita = "SELECT * FROM  blog  ORDER BY datetime_creat DESC LIMIT :limit";
+                $stmt_berita = $Conn->prepare($sql_berita);
+                $stmt_berita->bindParam(':limit', $limit_berita, PDO::PARAM_INT);
+                $stmt_berita->execute();
+                $berita_list = $stmt_berita->fetchAll();
+                if (count($berita_list) > 0) {
+                    foreach ($berita_list as $berita_artikel) {
+                        $date_time_creat_blog=date('d/m/Y',strtotime($berita_artikel['datetime_creat']));
+                        echo '
+                            <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-3">
+                                <div class="card h-100 d-flex flex-column show_transisi" style="width: 100%;">
+                                    <div class="img-square-wrapper">
+                                        <img src="'.$base_url.'image_proxy.php?segment=Artikel&image_name='.$berita_artikel['cover'].'" class="card-img-top" alt="...">
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <a href="/Blog?id='.$berita_artikel['id_blog'].'" class="text text-decoration-none">'.$berita_artikel['title_blog'].'</a>
+                                        </h5>
+                                        <p class="card-text">'.$date_time_creat_blog.'</p>
+                                    </div>
+                                </div>
+                            </div>
+                        ';
+                    }
+                }
+            ?>
         </div>
         <div class="row mb-3">
             <div class="col-12 text-center align-content-center">

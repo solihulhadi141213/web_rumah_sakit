@@ -144,6 +144,7 @@
             // echo '<h1>'.$Page.'</h1>';
             if($Page=="Home"||$Page==""){
                 include "_Page/Home/Home.php";
+                include "_Page/Home/ModalHome.php";
             }elseif($Page=="Contact"){
                 include "_Page/Contact/Contact.php";
             }elseif($Page=="Struktur-Organisasi"){
@@ -451,4 +452,18 @@
 
         });
     </script>
+    <?php
+        // Routing manual
+        if($Page=="Home"||$Page==""){
+          echo '<script type="text/javascript" src="'.$base_url.'/_Page/Home/Home.js?v='.date('YmdHis').'"></script>';
+        }elseif($Page=="Contact"){
+            
+        }elseif($Page=="Struktur-Organisasi"){
+           
+        }elseif($Page=="Galeri"){
+           
+        }else{
+            
+        }
+    ?>
 </html>
