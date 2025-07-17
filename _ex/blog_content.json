@@ -11,12 +11,28 @@
     },
     {
         "type": "image",
+        "unit": "%",
+        "width": "100",
         "content": "img_685e64f089b323.23932027.png",
-        "order_id": 3
+        "order_id": 3,
+        "position": "center"
     },
     {
-        "type": "text",
-        "content": "<i>Salam sejahtera bagi kita semua, semoga kita selalu diberikan berkah</i>",
-        "order_id": 4
+        "type": "image",
+        "unit": "%",
+        "width": "100",
+        "caption": "Gambar Contoh",
+        "content": "img_6879421a873901.72412050.png",
+        "order_id": 4,
+        "position": "center"
+    },
+    {
+        "type": "image",
+        "unit": "%",
+        "width": "100",
+        "caption": "Gambar Contoh",
+        "content": "img_687940ff0cded5.18902794.png",
+        "order_id": 5,
+        "position": "center"
     }
 ]

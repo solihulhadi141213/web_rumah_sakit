@@ -469,7 +469,7 @@
                                     </div>
                                     <div class="card-body">
                                         <h5 class="card-title">
-                                            <a href="/Blog?id='.$berita_artikel['id_blog'].'" class="text text-decoration-none">'.$berita_artikel['title_blog'].'</a>
+                                            <a href="'.$base_url.'/Blog?id='.$berita_artikel['id_blog'].'" class="text text-decoration-none">'.$berita_artikel['title_blog'].'</a>
                                         </h5>
                                         <p class="card-text">'.$date_time_creat_blog.'</p>
                                     </div>
@@ -482,7 +482,7 @@
         </div>
         <div class="row mb-3">
             <div class="col-12 text-center align-content-center">
-                <button type="button" class="baca_selengkapnya">
+                <button type="button" class="baca_selengkapnya" target-link="<?php echo $base_url; ?>Blog">
                     Lihat Selengkapnya
                 </button>
             </div>

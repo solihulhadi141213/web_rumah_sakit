@@ -1202,3 +1202,20 @@ iframe {
 .orgchart-container {
     overflow: auto !important;
 }
+
+/* Sembunyikan widget_blog di layar kecil */
+@media (max-width: 767.98px) {
+    #widget_blog {
+        display: none;
+    }
+    #toggle_widget_blog_btn {
+        display: block;
+    }
+}
+
+/* Tombol toggle disembunyikan di desktop */
+@media (min-width: 768px) {
+    #toggle_widget_blog_btn {
+        display: none;
+    }
+}

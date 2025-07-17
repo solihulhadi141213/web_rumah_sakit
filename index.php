@@ -4,6 +4,9 @@
     require_once '_Config/Function.php';
     require_once '_Config/log_visitor.php';
 
+    //Zona waktu
+    date_default_timezone_set('Asia/Jakarta');
+
     // Inisialisasi koneksi database
     $db = new Database();
     $Conn = $db->getConnection();
@@ -151,6 +154,8 @@
                 include "_Page/Struktur-Organisasi/Struktur-Organisasi.php";
             }elseif($Page=="Galeri"){
                 include "_Page/Galeri/Galeri.php";
+            }elseif($Page=="Blog"){
+                include "_Page/Blog/Blog.php";
             }else{
                 include "_Page/Error/page-not-found.php";
             }
@@ -462,6 +467,8 @@
            
         }elseif($Page=="Galeri"){
            
+        }elseif($Page=="Blog"){
+           echo '<script type="text/javascript" src="'.$base_url.'/_Page/Blog/Blog.js?v='.date('YmdHis').'"></script>';
         }else{
             
         }

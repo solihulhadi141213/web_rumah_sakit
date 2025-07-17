@@ -21,4 +21,12 @@ $(document).ready(function() {
             }
         });
     });
+
+    //Baca selengkapnya Blog
+    $('.baca_selengkapnya').on('click', function() {
+        var targetUrl = $(this).attr('target-link');
+        if (targetUrl) {
+            window.location.href = targetUrl;
+        }
+    });
 });

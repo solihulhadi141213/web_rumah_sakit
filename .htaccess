@@ -16,6 +16,8 @@
     RewriteRule ^assets/(_Direktur|_Error)/ - [F,NC,L]
     # Izinkan akses ke semua file PHP di dalam folder _Page/Home
     RewriteRule ^_Page/Home/.*\.php$ - [L,NC]
+    # Izinkan akses ke semua file PHP di dalam folder _Page/Blog
+    RewriteRule ^_Page/Blog/.*\.php$ - [L,NC]
     # 4. Blokir akses ke file PHP lainnya, KECUALI dari _Api
     RewriteCond %{REQUEST_URI} \.php$ [NC]
     RewriteCond %{REQUEST_URI} !^/_Api/ [NC]
