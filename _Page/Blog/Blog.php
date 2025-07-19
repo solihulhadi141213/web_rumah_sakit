@@ -22,6 +22,30 @@
                 <?php
                     if(empty($_GET['id'])){
                         $id="";
+                        //Apabila ada pencarian
+                        if(!empty($_GET['keyword'])){
+                            echo '
+                                <div class="row mb-3">
+                                    <div class="col-md-12 mb-3">
+                                        <div class="alert alert-info">
+                                            Menampilkan Daftar Berdasarkan Pencarian <b>'.$_GET['keyword'].'</b>
+                                        </div>
+                                    </div>
+                                </div>
+                            ';
+                        }
+                        //Apabila ada tag
+                        if(!empty($_GET['tag'])){
+                            echo '
+                                <div class="row mb-3">
+                                    <div class="col-md-12 mb-3">
+                                        <div class="alert alert-info">
+                                            Menampilkan Daftar Berdasarkan Tag/Kategori <b>'.$_GET['tag'].'</b>
+                                        </div>
+                                    </div>
+                                </div>
+                            ';
+                        }
                         echo '
                             <div class="row">
                                 <div class="col-md-12" id="show_list_blog">

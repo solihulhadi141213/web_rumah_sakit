@@ -1,0 +1,22 @@
+[
+    {
+        "type": "html",
+        "order": 1,
+        "content": "<i>Assalamualaikum WR WB</i>",
+        "id_konten": "349a59ea4f5cd548871985ea9f75f2e0",
+        "created_at": "2025-07-18 14:33:32",
+        "updated_at": "2025-07-19 06:37:07"
+    },
+    {
+        "type": "image",
+        "unit": "%",
+        "order": 2,
+        "width": "100",
+        "caption": "Gambar Contoh",
+        "content": "77e12308b86f0d7329c1924e767f2ede.png",
+        "position": "center",
+        "id_konten": "ff284cf3a15e0e525a1cc0556b5fda83",
+        "created_at": "2025-07-18 14:35:19",
+        "updated_at": "2025-07-19 06:39:29"
+    }
+]
